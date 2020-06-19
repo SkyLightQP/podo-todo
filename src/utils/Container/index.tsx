@@ -1,13 +1,18 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const ContainerStyle = styled.div`
-    width: 1400px;
-    margin: 0 auto;
+    display: flex;
+    width: 100vw;
+    justify-content: center;
 `;
 
 const Container: React.FC = ({ children }) => {
-    return <ContainerStyle>{children}</ContainerStyle>;
+  return (
+    <ContainerStyle>
+      <div>{children}</div>
+    </ContainerStyle>
+  );
 };
 
 export default Container;
