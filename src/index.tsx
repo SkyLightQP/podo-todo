@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import App from './views/App';
+
+import './css/color.css';
 import './css/global.css';
 
 ReactDOM.render(
