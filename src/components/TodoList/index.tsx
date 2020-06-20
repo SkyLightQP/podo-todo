@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import TodoCard from '../TodoCard';
+import { entriesTodo } from '../../todo/TodoManager';
 
 const ListStyle = styled.div`
     display: flex;
@@ -11,11 +12,9 @@ const TodoList: React.FC = () => {
     return (
         <ListStyle>
             <div>
-                <TodoCard data={{ content: 'dddd', date: 1592664745828, done: false }} />
-                <TodoCard data={{ content: 'dddd', date: 1592664745828, done: true }} />
-                <TodoCard data={{ content: 'dddd', date: 1592664745828, done: false }} />
-                <TodoCard data={{ content: 'dddd', date: 1592664745828, done: true }} />
-                <TodoCard data={{ content: 'dddd', date: 1592664745828, done: false }} />
+                {entriesTodo().map((todo) => (
+                    <TodoCard key={todo.date} data={{ content: todo.content, date: todo.date, done: todo.done }} />
+                ))}
             </div>
         </ListStyle>
     );
