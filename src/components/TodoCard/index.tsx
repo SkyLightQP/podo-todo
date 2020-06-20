@@ -24,10 +24,6 @@ const CardStyle = styled.div`
     &:hover {
         box-shadow: rgba(0, 0, 0, 0.3) 8px 8px 20px;
     }
-
-    &:last-child {
-        margin-bottom: 0;
-    }
 `;
 
 const CardBodyStyle = styled.div`
