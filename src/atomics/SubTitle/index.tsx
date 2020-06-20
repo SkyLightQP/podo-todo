@@ -10,7 +10,7 @@ const SubTitle = styled.p`
     color: #333333;
 
     &:hover {
-        text-shadow: rgba(52, 152, 219, 0.2) 3px 3px 10px;
+        text-shadow: rgba(52, 152, 219, 0.4) 3px 3px 10px;
         color: var(--color--hover);
     }
 `;
