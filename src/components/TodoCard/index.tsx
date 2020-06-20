@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import CardDateText from '../../atomics/CardDateText';
+import TrashIcon from '../../atomics/TrashIcon';
 
 const CardStyle = styled.div`
     display: flex;
@@ -43,12 +42,6 @@ const CardLeftContainer = styled.div`
 const CardRightContainer = styled.div`
     margin-top: 8px;
     margin-left: auto;
-
-    cursor: pointer;
-
-    &:hover {
-        color: var(--color--hover);
-    }
 `;
 
 const CardTextStyle = styled.p`
@@ -65,12 +58,12 @@ const TodoCard: React.FC = () => {
             <CardBodyStyle>
                 <CardLeftContainer>
                     <CardTextStyle>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                     </CardTextStyle>
                     <CardDateText>2020년 06월 19일 오후 11시 55분</CardDateText>
                 </CardLeftContainer>
                 <CardRightContainer>
-                    <FontAwesomeIcon icon={faTrashAlt} />
+                    <TrashIcon />
                 </CardRightContainer>
             </CardBodyStyle>
         </CardStyle>
