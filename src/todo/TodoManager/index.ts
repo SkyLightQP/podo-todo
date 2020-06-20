@@ -3,10 +3,11 @@ import { TodoPayload } from '../../payloads/TodoPayload';
 const KEY = 'TODO';
 
 export const isEmpty = (): boolean => {
-    return localStorage.length > 0;
+    return !localStorage.getItem(KEY);
 };
 
 export const entriesTodo = (): TodoPayload[] => {
+    if (isEmpty()) return [];
     return JSON.parse(localStorage.getItem(KEY)!!);
 };
 
@@ -19,7 +20,7 @@ export const setTodo = (data: TodoPayload[]): void => {
 };
 
 export const addTodo = (content: string, done: boolean = false): void => {
-    if (isEmpty()) localStorage.setItem(KEY, JSON.stringify({}));
+    if (isEmpty()) localStorage.setItem(KEY, JSON.stringify([]));
     const prev = entriesTodo();
     prev.push({
         content,
