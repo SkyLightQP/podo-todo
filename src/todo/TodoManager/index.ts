@@ -22,12 +22,12 @@ export const setTodo = (data: TodoPayload[]): void => {
 export const addTodo = (content: string, done: boolean = false): void => {
     if (isEmpty()) localStorage.setItem(KEY, JSON.stringify([]));
     const prev = entriesTodo();
-    prev.push({
+    const data = {
         content,
         date: new Date().getTime(),
         done,
-    });
-    setTodo(prev);
+    };
+    setTodo([data, ...prev]);
 };
 
 export const removeTodo = (index: number): boolean => {
