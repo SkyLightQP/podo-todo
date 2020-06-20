@@ -27,17 +27,20 @@ const InputStyle = styled.input`
     &:focus {
         box-shadow: rgba(52, 152, 219, 0.6) 3px 3px 10px;
     }
-    
+
     &::placeholder {
         font-size: 12px;
     }
 `;
 
-const TodoInput: React.FC = () => {
+const TodoInput: React.FC<React.InputHTMLAttributes<any> & { onClick?: React.MouseEventHandler }> = ({
+    onClick,
+    ...props
+}) => {
     return (
         <InputContainer>
-            <InputStyle type="text" placeholder="추가할 TODO 내용을 입력하세요." />
-            <TodoInputEnter />
+            <InputStyle type="text" placeholder="추가할 TODO 내용을 입력하세요." {...props} />
+            <TodoInputEnter onClick={onClick} />
         </InputContainer>
     );
 };

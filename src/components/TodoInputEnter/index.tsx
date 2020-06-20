@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 
-const IconWrapper = styled.div`
+const IconWrapper = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,13 +18,18 @@ const IconWrapper = styled.div`
     cursor: pointer;
 
     &:hover {
+        box-shadow: rgba(52, 152, 219, 0.6) 3px 3px 10px;
         color: var(--color--hover);
+    }
+
+    &:focus {
+        box-shadow: rgba(52, 152, 219, 0.6) 3px 3px 10px;
     }
 `;
 
-const TodoInputEnter: React.FC = () => {
+const TodoInputEnter: React.FC<React.ButtonHTMLAttributes<any>> = ({ ...props }) => {
     return (
-        <IconWrapper>
+        <IconWrapper {...props}>
             <FontAwesomeIcon icon={faPencilAlt} />
         </IconWrapper>
     );
