@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const SubTitle = styled.p`
     margin: 0;
@@ -8,9 +8,10 @@ const SubTitle = styled.p`
     text-decoration: underline;
     cursor: pointer;
     color: #333333;
-    
+
     &:hover {
-      text-shadow: rgba(0, 0, 0, 0.2) 3px 3px 10px;
+        text-shadow: rgba(52, 152, 219, 0.2) 3px 3px 10px;
+        color: var(--color--hover);
     }
 `;
 
