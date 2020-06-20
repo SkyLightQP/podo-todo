@@ -15,7 +15,7 @@ const App: React.FC = () => {
         <Container>
             <HeaderStyle>
                 <Title>Podo TODO</Title>
-                <a href="https://github.com/SkyLightQP/podo-todo/" target="_blank">
+                <a href="https://github.com/SkyLightQP/podo-todo/" target="_blank" rel="noopener noreferrer">
                     <SubTitle>View on GitHub</SubTitle>
                 </a>
             </HeaderStyle>
