@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import CardDateText from '../../atomics/CardDateText';
 import TrashIcon from '../../atomics/TrashIcon';
+import Switch from 'react-input-switch';
+import { TodoPayload } from '../../payloads/TodoPayload';
 
 const CardStyle = styled.div`
     display: flex;
@@ -52,17 +54,27 @@ const CardTextStyle = styled.p`
     overflow: hidden;
 `;
 
-const TodoCard: React.FC = () => {
+const SwitchWrapper = styled(Switch)`
+    margin-right: 16px;
+    margin-bottom: 2px;
+`;
+
+interface TodoCardProps {
+    readonly data: TodoPayload;
+}
+
+const TodoCard: React.FC<TodoCardProps> = ({ data }) => {
+    const date = new Date(data.date);
+
     return (
         <CardStyle>
             <CardBodyStyle>
                 <CardLeftContainer>
-                    <CardTextStyle>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    </CardTextStyle>
-                    <CardDateText>2020년 06월 19일 오후 11시 55분</CardDateText>
+                    <CardTextStyle>{data.content}</CardTextStyle>
+                    <CardDateText>{date.toLocaleString()}</CardDateText>
                 </CardLeftContainer>
                 <CardRightContainer>
+                    <SwitchWrapper value={data.done ? 1 : 0} />
                     <TrashIcon />
                 </CardRightContainer>
             </CardBodyStyle>
