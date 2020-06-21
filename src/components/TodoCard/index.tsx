@@ -4,6 +4,8 @@ import CardDateText from '../../atomics/CardDateText';
 import TrashIcon from '../../atomics/TrashIcon';
 import Switch from 'react-input-switch';
 import { TodoPayload } from '../../payloads/TodoPayload';
+import { removeTodoByDate } from '../../todo/TodoManager';
+import { useTodo } from '../../hooks/useTodo';
 
 const CardStyle = styled.div`
     display: flex;
@@ -61,6 +63,12 @@ interface TodoCardProps {
 
 const TodoCard: React.FC<TodoCardProps> = ({ data }) => {
     const date = new Date(data.date);
+    const [, setTodo] = useTodo();
+
+    const remove = () => {
+        const prev = removeTodoByDate(data.date);
+        setTodo(prev);
+    };
 
     return (
         <CardStyle>
@@ -71,7 +79,7 @@ const TodoCard: React.FC<TodoCardProps> = ({ data }) => {
                 </CardLeftContainer>
                 <CardRightContainer>
                     <SwitchWrapper value={data.done ? 1 : 0} />
-                    <TrashIcon />
+                    <TrashIcon onClick={remove} />
                 </CardRightContainer>
             </CardBodyStyle>
         </CardStyle>

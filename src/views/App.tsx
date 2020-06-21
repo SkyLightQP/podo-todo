@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import TodoInput from '../components/TodoInput';
 import { addTodo, entriesTodo } from '../todo/TodoManager';
 import TodoCard from '../components/TodoCard';
+import { useTodo } from '../hooks/useTodo';
+import { TodoPayload } from '../payloads/TodoPayload';
 
 const HeaderStyle = styled.header`
     margin-top: 1rem;
@@ -26,15 +28,16 @@ const NoDataTextStyle = styled.p`
 
 const App: React.FC = () => {
     const [input, setInput] = useState<string>('');
-    const all = entriesTodo();
-    const todoMap = all.map((todo) => (
-        <TodoCard key={todo.date} data={{ content: todo.content, date: todo.date, done: todo.done }} />
+    const [todo, setTodo] = useTodo();
+    const todoMap = todo.map((t: TodoPayload) => (
+        <TodoCard key={t.date} data={{ content: t.content, date: t.date, done: t.done }} />
     ));
 
     const onEnter = () => {
         if (input === '') return;
         addTodo(input);
         setInput('');
+        setTodo(entriesTodo());
     };
 
     return (
@@ -56,7 +59,7 @@ const App: React.FC = () => {
             />
 
             <ListStyle>
-                <div>{all.length <= 0 ? <NoDataTextStyle>No Data</NoDataTextStyle> : todoMap}</div>
+                <div>{todo.length <= 0 ? <NoDataTextStyle>No Data</NoDataTextStyle> : todoMap}</div>
             </ListStyle>
         </Container>
     );
