@@ -5,10 +5,13 @@ import App from './views/App';
 
 import './css/color.css';
 import './css/global.css';
+import { TodoContext } from './hooks/useTodo';
 
 ReactDOM.render(
     <React.StrictMode>
-        <App />
+        <TodoContext>
+            <App />
+        </TodoContext>
     </React.StrictMode>,
     document.getElementById('root')
 );
