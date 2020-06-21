@@ -1,5 +1,5 @@
 module.exports = {
-    extends: ['react-app', 'airbnb', 'plugin:prettier/recommended'],
+    extends: ['react-app', 'airbnb'],
     plugins: ['react-hooks'],
     rules: {
         'arrow-body-style': 'off',
@@ -17,5 +17,6 @@ module.exports = {
         'react/jsx-one-expression-per-line': 'off',
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
+        'linebreak-style': 'off'
     }
 };
