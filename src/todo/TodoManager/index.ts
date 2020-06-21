@@ -30,9 +30,10 @@ export const addTodo = (content: string, done: boolean = false): void => {
     setTodo([data, ...prev]);
 };
 
-export const removeTodo = (index: number): boolean => {
+export const removeTodoByDate = (date: number): TodoPayload[] => {
     const prev = entriesTodo();
-    prev.slice(index, 1);
+    const index = prev.findIndex((v) => v.date === date);
+    prev.splice(index, 1);
     setTodo(prev);
-    return true;
+    return entriesTodo();
 };
