@@ -41,7 +41,10 @@ const App: React.FC = () => {
     ));
 
     const onEnter = () => {
-        if (input === '') return;
+        if (input.trim() === '') {
+            setInput(''); 
+            return;
+        }
         addTodo(input);
         setInput('');
         setTodoHook(entriesTodo());
