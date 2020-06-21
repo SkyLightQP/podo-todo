@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const ContainerStyle = styled.div`
     display: flex;
@@ -8,11 +8,11 @@ const ContainerStyle = styled.div`
 `;
 
 const Container: React.FC = ({ children }) => {
-  return (
-    <ContainerStyle>
-      <div>{children}</div>
-    </ContainerStyle>
-  );
+    return (
+        <ContainerStyle>
+            <div>{children}</div>
+        </ContainerStyle>
+    );
 };
 
 export default Container;

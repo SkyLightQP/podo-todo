@@ -29,6 +29,7 @@ const IconWrapper = styled.button`
 
 const TodoInputEnter: React.FC<React.ButtonHTMLAttributes<any>> = ({ ...props }) => {
     return (
+        // eslint-disable-next-line react/jsx-props-no-spreading
         <IconWrapper {...props}>
             <FontAwesomeIcon icon={faPencilAlt} />
         </IconWrapper>

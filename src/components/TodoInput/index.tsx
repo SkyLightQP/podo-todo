@@ -39,6 +39,7 @@ const TodoInput: React.FC<React.InputHTMLAttributes<any> & { onClick?: React.Mou
 }) => {
     return (
         <InputContainer>
+          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
             <InputStyle type="text" placeholder="추가할 TODO 내용을 입력하세요." {...props} />
             <TodoInputEnter onClick={onClick} />
         </InputContainer>

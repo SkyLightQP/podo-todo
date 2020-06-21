@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import Switch from 'react-input-switch';
 import CardDateText from '../../atomics/CardDateText';
 import TrashIcon from '../../atomics/TrashIcon';
-import Switch from 'react-input-switch';
 import { TodoPayload } from '../../payloads/TodoPayload';
 import { removeTodoByDate } from '../../todo/TodoManager';
 import { useTodo } from '../../hooks/useTodo';
@@ -79,7 +79,7 @@ const TodoCard: React.FC<TodoCardProps> = ({ data, onSwitchClick }) => {
                     <CardDateText>{date.toLocaleString()}</CardDateText>
                 </CardLeftContainer>
                 <CardRightContainer>
-                    <SwitchWrapper value={data.done ? 1 : 0} onChange={onSwitchClick}/>
+                    <SwitchWrapper value={data.done ? 1 : 0} onChange={onSwitchClick} />
                     <TrashIcon onClick={remove} />
                 </CardRightContainer>
             </CardBodyStyle>

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import Title from '../atomics/Title';
 import Container from '../utils/Container';
 import SubTitle from '../atomics/SubTitle';
-import styled from 'styled-components';
 import TodoInput from '../components/TodoInput';
 import { addTodo, entriesTodo, toggleTodo } from '../todo/TodoManager';
 import TodoCard from '../components/TodoCard';
@@ -31,9 +31,9 @@ const App: React.FC = () => {
     const [todo, setTodoHook] = useTodo();
     const todoMap = todo.map((t: TodoPayload, index: number) => (
         <TodoCard
-            key={t.date}
-            data={{ content: t.content, date: t.date, done: t.done }}
-            onSwitchClick={() => {
+          key={t.date}
+          data={{ content: t.content, date: t.date, done: t.done }}
+          onSwitchClick={() => {
                 toggleTodo(index);
                 setTodoHook(entriesTodo());
             }}
@@ -57,12 +57,12 @@ const App: React.FC = () => {
             </HeaderStyle>
 
             <TodoInput
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={(e) => {
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => {
                     if (e.key === 'Enter') onEnter();
                 }}
-                onClick={onEnter}
+              onClick={onEnter}
             />
 
             <ListStyle>
