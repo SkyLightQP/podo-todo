@@ -11,8 +11,8 @@ const IconWrapper = styled(FontAwesomeIcon)`
     }
 `;
 
-const TrashIcon: React.FC = () => {
-    return <IconWrapper icon={faTrashAlt} />;
+const TrashIcon: React.FC<{ onClick: React.MouseEventHandler }> = ({ onClick }) => {
+    return <IconWrapper icon={faTrashAlt} onClick={onClick} />;
 };
 
 export default TrashIcon;
