@@ -59,9 +59,10 @@ const SwitchWrapper = styled(Switch)`
 
 interface TodoCardProps {
     readonly data: TodoPayload;
+    readonly onSwitchClick?: React.ChangeEventHandler;
 }
 
-const TodoCard: React.FC<TodoCardProps> = ({ data }) => {
+const TodoCard: React.FC<TodoCardProps> = ({ data, onSwitchClick }) => {
     const date = new Date(data.date);
     const [, setTodo] = useTodo();
 
@@ -78,7 +79,7 @@ const TodoCard: React.FC<TodoCardProps> = ({ data }) => {
                     <CardDateText>{date.toLocaleString()}</CardDateText>
                 </CardLeftContainer>
                 <CardRightContainer>
-                    <SwitchWrapper value={data.done ? 1 : 0} />
+                    <SwitchWrapper value={data.done ? 1 : 0} onChange={onSwitchClick}/>
                     <TrashIcon onClick={remove} />
                 </CardRightContainer>
             </CardBodyStyle>

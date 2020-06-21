@@ -15,6 +15,12 @@ export const getTodo = (index: number): TodoPayload => {
     return JSON.parse(localStorage.getItem(KEY)!!)[index];
 };
 
+export const toggleTodo = (index: number) => {
+    const allTodo = entriesTodo();
+    allTodo[index].done = !getTodo(index).done;
+    setTodo(allTodo);
+};
+
 export const setTodo = (data: TodoPayload[]): void => {
     localStorage.setItem(KEY, JSON.stringify(data));
 };
