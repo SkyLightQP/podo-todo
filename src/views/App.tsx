@@ -41,7 +41,10 @@ const App: React.FC = () => {
     ));
 
     const onEnter = () => {
-        if (input === '') return;
+        if (input.trim() === '') { //trim써서 공백만 입력되도 제한
+            setInput(''); 
+            return;
+        }
         addTodo(input);
         setInput('');
         setTodoHook(entriesTodo());
